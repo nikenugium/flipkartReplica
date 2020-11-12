@@ -1,0 +1,61 @@
+// let count = 0
+let counter = 0;
+let delDetails = "FREE"; 
+let TotalAmount = 0;
+
+class Cart extends React.Component {
+  render(){
+    return(
+      <div>
+        <div class = "cartHead">
+          <div class = "titleName">Flipkart
+            <input type = "text" placeholder = "Search for products, brands and more" id = "searchbar"/>
+            <i class="material-icons">search</i>
+            <div class = "accountInformation">My Account</div><i class = "material-icons" id = "expandMore">expand_more</i>
+          </div>
+        </div> 
+        <div class = "itemsContent">
+          <div class = "boxText">
+            My Cart({counter})
+          </div>
+          <i class = "material-icons" id = "locationOn">location_on</i>
+          <div id = "deliverTo">Deliver to</div>
+          <input type = "text "id = "pincode" placeholder = "Enter delivery pincode"/>
+          <button id = "VerifyPincode">Check</button>
+        <hr />
+      <img class = "itemImg" src = "https://rukminim1.flixcart.com/image/224/224/jg2kqkw0/vehicle-washing-cloth/w/v/f/double-sided-microfiber-gloves-2-units-auto-hub-original-imaf4ec5k6rrgp65.jpeg?q=90" />   
+          <button id = "minusBtn">-</button>
+          <input type = "text" id = "NoOfItems"value = "1"/>
+          <button id = "plusBtn">+</button>
+          <a href = "#lol" id = "itemInfo">Auto Hub Microfiber Vehicle Washin...</a>
+          <h4 id = "ItemDetail">Pack Of 2</h4>
+          <h5 id = "sellerDetail">Seller: ASTRADERS</h5>
+          <div id = "Price">₹193 <span id = "discount"> ₹499</span><span id = "discountPercent">61% Off</span><span id = "offers">2 offers available</span></div>
+          <button id = "saveforlater">SAVE FOR LATER</button>
+          <button id = "remove">REMOVE</button>
+          
+          <div class="sideInfo">Delivery in 5 - 7 days | 
+            <span class="Free"> Free</span>
+            <span class="freeDelivery"> ₹40</span> 
+            <div id = "replacementPolicy">7 Days Replacement Policy</div>
+          </div>
+      </div>
+        <div id = "order">
+          <button id = "placeOrder">PLACE ORDER</button>  
+          <div id = "sideItemsListBox">
+            PRICE DETAILS
+            <div id = "totalItemsCount">Price ({counter} Items) <span id = "priceAmount">{TotalAmount}</span></div>
+            <div id = "deliveryDetail"><span id ="deliveryCharges">Delivery Charges</span>{delDetails}</div>
+            <div id = "totalAmount"><span id = "totalAmt">TOTAL</span>{TotalAmount}</div>
+            <div id = "itemsList"></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <Cart />,
+  document.getElementById('root')
+);

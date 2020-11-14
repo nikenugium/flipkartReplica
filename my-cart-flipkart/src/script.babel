@@ -1,13 +1,53 @@
-// let count = 0
-let counter = 0;
+ let count = 0
+
 let delDetails = "FREE"; 
 let TotalAmount = 0;
+const cartHead = {
+  height:"55px",
+  width:"100%",
+  paddingLeft:"300px",
+  backgroundColor:"#2874f0",
+  color:"white",
+  fontSize:"20px",
+  fontStyle:"italic",
+  fontWeight:"bold",
+  lineHeight:"50px",
+  boxShadow:"0px 0px 5px black"
+}
+const adjustContent = {
+  marginLeft:"20px",
+  marginTop:"-10px"
+}
+const shoe = {
+  width:"180px",
+  color:"black",
+  position:"relative",
+  top:"-90px",
+  left:"157px"
+}
+const buyItem = {
+  position:"relative",
+  top:"-90px",
+  left:"160px",
+  backgroundColor:"#fb641b",
+  color:"white",
+  border:"none",
+  padding:"15px 30px"
+}
+const itemMargin = {
+  marginTop:"-70px"
+}
+
 
 class Cart extends React.Component {
+  state = {counter : 0};
+    CartNumbers = () => {
+      this.setState({counter : this.state.counter + 1})
+    }
   render(){
     return(
       <div>
-        <div class = "cartHead">
+        <div style = {cartHead}>
           <div class = "titleName">Flipkart
             <input type = "text" placeholder = "Search for products, brands and more" id = "searchbar"/>
             <i class="material-icons">search</i>
@@ -16,14 +56,14 @@ class Cart extends React.Component {
         </div> 
         <div class = "itemsContent">
           <div class = "boxText">
-            My Cart({counter})
+            My Cart({this.state.counter})
           </div>
           <i class = "material-icons" id = "locationOn">location_on</i>
           <div id = "deliverTo">Deliver to</div>
           <input type = "text "id = "pincode" placeholder = "Enter delivery pincode"/>
           <button id = "VerifyPincode">Check</button>
         <hr />
-      <img class = "itemImg" src = "https://rukminim1.flixcart.com/image/224/224/jg2kqkw0/vehicle-washing-cloth/w/v/f/double-sided-microfiber-gloves-2-units-auto-hub-original-imaf4ec5k6rrgp65.jpeg?q=90" />   
+      <img style = {{margin:"0px 0px 0px 30px"}}src = "https://rukminim1.flixcart.com/image/224/224/jg2kqkw0/vehicle-washing-cloth/w/v/f/double-sided-microfiber-gloves-2-units-auto-hub-original-imaf4ec5k6rrgp65.jpeg?q=90" />   
           <button id = "minusBtn">-</button>
           <input type = "text" id = "NoOfItems"value = "1"/>
           <button id = "plusBtn">+</button>
@@ -42,12 +82,54 @@ class Cart extends React.Component {
       </div>
         <div id = "order">
           <button id = "placeOrder">PLACE ORDER</button>  
-          <div id = "sideItemsListBox">
+          <div id = "sideAmountBox">
             PRICE DETAILS
-            <div id = "totalItemsCount">Price ({counter} Items) <span id = "priceAmount">{TotalAmount}</span></div>
+            <div id = "totalItemsCount">Price ({this.state.counter} Items) <span id = "priceAmount">{TotalAmount}</span></div>
             <div id = "deliveryDetail"><span id ="deliveryCharges">Delivery Charges</span>{delDetails}</div>
             <div id = "totalAmount"><span id = "totalAmt">TOTAL</span>{TotalAmount}</div>
             <div id = "itemsList"></div>
+          </div>
+        </div>
+        <div id = "sideItemsListBox">
+          <div id = "ItemsShoes">
+            <img src="https://rukminim1.flixcart.com/image/224/224/k6nxrbk0/shoe/k/h/n/mrj1241-6-aadi-black-original-imafp2hytr9nguv5.jpeg?q=90" />
+            <div style = {adjustContent}>
+              <div style = {shoe}>Aadi Casuals For Men</div>
+              <h5 id = "sellerDetail">Seller: PrideShoes</h5>
+              <div id = "Price">₹374 <span id = "discount"> ₹999</span><span id = "discountPercent">62% Off</span>
+              </div>
+              <button style = {buyItem} id = "Shoe" onClick = {this.CartNumbers}>ADD TO CART</button>  
+            </div>  
+          </div>
+          <div id = "ItemsBags" style = {itemMargin}>
+             <img src="https://rukminim1.flixcart.com/image/224/224/jrf8o7k0/hand-messenger-bag/a/h/3/fashion-shoulder-bag-pg-10-shoulder-bag-urban-trend-original-imaexs9wmanzw6hh.jpeg?q=90" />
+            <div style = {adjustContent}>
+              <div style = {shoe}>Urban Trend Women Blue Shoulder Bag</div>
+              <h5 id = "sellerDetail">Seller: ABRETAILSTORE</h5>
+              <div id = "Price">₹271 <span id = "discount"> ₹999</span><span id = "discountPercent">72% Off</span>
+              </div>
+              <button style = {buyItem} id = "Shoe" onClick = {this.CartNumbers}>ADD TO CART</button>  
+            </div> 
+          </div>
+          <div id = "ItemsShirt" style = {itemMargin}>
+             <img src="https://rukminim1.flixcart.com/image/224/224/kfoapow0-0/t-shirt/r/l/a/xxl-fc4070-fastcolors-original-imafw2jymrdyxcs2.jpeg?q=90" />
+            <div style = {adjustContent}>
+              <div style = {shoe}>FastColors Striped Men Round Neck White</div>
+              <h5 id = "sellerDetail">Seller: FastColors</h5>
+              <div id = "Price">₹371 <span id = "discount"> ₹1,999</span><span id = "discountPercent">81% Off</span>
+              </div>
+              <button style = {buyItem} id = "Shoe" onClick = {this.CartNumbers}>ADD TO CART</button>  
+            </div> 
+          </div>
+          <div id = "ItemsDuster" style = {itemMargin}>
+            <img src="https://rukminim1.flixcart.com/image/224/224/jg2kqkw0/vehicle-washing-cloth/w/v/f/double-sided-microfiber-gloves-2-units-auto-hub-original-imaf4ec5k6rrgp65.jpeg?q=90" />
+            <div style = {adjustContent}>
+              <div style = {shoe}>Auto Hub Microfiber Vehicle Washing</div>
+              <h5 id = "sellerDetail">Seller: ASTRADERS</h5>
+              <div id = "Price">₹194 <span id = "discount"> ₹499</span><span id = "discountPercent">61% Off</span>
+              </div>
+              <button style = {buyItem} id = "Shoe" onClick = {this.CartNumbers}>ADD TO CART</button>  
+            </div>  
           </div>
         </div>
       </div>

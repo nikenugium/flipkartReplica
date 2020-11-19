@@ -2,6 +2,22 @@ function _defineProperty(obj, key, value) {if (key in obj) {Object.definePropert
 
 let delDetails = "FREE";
 let TotalAmount = 0;
+const hideShowContent = {
+  display: "none" };
+
+const emptyCart = {
+  textAlign: "center",
+  color: "gray" };
+
+const hideShowEmpty = {
+  height: "250px",
+  // width:"740px",
+  marginTop: "-20px",
+  marginLeft: "40px",
+  backgroundColor: "white",
+  // boxShadow:"1px 0px 1px black",
+  display: "block" };
+
 const cartHead = {
   height: "55px",
   width: "100%",
@@ -41,8 +57,27 @@ const itemMargin = {
 
 class Cart extends React.Component {constructor(...args) {super(...args);_defineProperty(this, "state",
     { counter: 0 });_defineProperty(this, "CartNumbers",
-    () => {
+    (iImage, iInfo, iDetail, sDetail, pr, pDisc, discPer, off) => {
       this.setState({ counter: this.state.counter + 1 });
+      let itemListed = document.querySelector("#showItems");
+      itemListed.innerHTML = `
+      <img style = {{margin:"0px 0px 0px 30px"}} id = "iImg" src = "https://rukminim1.flixcart.com/image/224/224/jg2kqkw0/vehicle-washing-cloth/w/v/f/double-sided-microfiber-gloves-2-units-auto-hub-original-imaf4ec5k6rrgp65.jpeg?q=90" />   
+          <button id = "minusBtn">-</button>
+          <input type = "text" id = "NoOfItems"value = "1"/>
+          <button id = "plusBtn">+</button>
+          <a href = "#lol" id = "itemInfo">Auto Hub Microfiber Vehicle Washin...</a>
+          <h4 id = "ItemDetail">Pack Of 2</h4>
+          <h5 id = "sellerDetail">Seller: ASTRADERS</h5>
+          <div id = "Price">₹193 <span id = "discount"> ₹499</span><span id = "discountPercent">61% Off</span><span id = "offers">2 offers available</span></div>
+          <button id = "saveforlater">SAVE FOR LATER</button>
+          <button id = "remove">REMOVE</button>
+          
+          <div class="sideInfo">Delivery in 5 - 7 days | 
+            <span class="Free"> Free</span>
+            <span class="freeDelivery"> ₹40</span> 
+            <div id = "replacementPolicy">7 Days Replacement Policy</div>
+          </div>
+      `;
     });}
   render() {
     return (
@@ -62,22 +97,8 @@ class Cart extends React.Component {constructor(...args) {super(...args);_define
       React.createElement("div", { id: "deliverTo" }, "Deliver to"),
       React.createElement("input", { type: "text ", id: "pincode", placeholder: "Enter delivery pincode" }),
       React.createElement("button", { id: "VerifyPincode" }, "Check"),
-      React.createElement("hr", null),
-      React.createElement("img", { style: { margin: "0px 0px 0px 30px" }, src: "https://rukminim1.flixcart.com/image/224/224/jg2kqkw0/vehicle-washing-cloth/w/v/f/double-sided-microfiber-gloves-2-units-auto-hub-original-imaf4ec5k6rrgp65.jpeg?q=90" }),
-      React.createElement("button", { id: "minusBtn" }, "-"),
-      React.createElement("input", { type: "text", id: "NoOfItems", value: "1" }),
-      React.createElement("button", { id: "plusBtn" }, "+"),
-      React.createElement("a", { href: "#lol", id: "itemInfo" }, "Auto Hub Microfiber Vehicle Washin..."),
-      React.createElement("h4", { id: "ItemDetail" }, "Pack Of 2"),
-      React.createElement("h5", { id: "sellerDetail" }, "Seller: ASTRADERS"),
-      React.createElement("div", { id: "Price" }, "\u20B9193 ", React.createElement("span", { id: "discount" }, " \u20B9499"), React.createElement("span", { id: "discountPercent" }, "61% Off"), React.createElement("span", { id: "offers" }, "2 offers available")),
-      React.createElement("button", { id: "saveforlater" }, "SAVE FOR LATER"),
-      React.createElement("button", { id: "remove" }, "REMOVE"),
-
-      React.createElement("div", { class: "sideInfo" }, "Delivery in 5 - 7 days |",
-      React.createElement("span", { class: "Free" }, " Free"),
-      React.createElement("span", { class: "freeDelivery" }, " \u20B940"),
-      React.createElement("div", { id: "replacementPolicy" }, "7 Days Replacement Policy"))),
+      React.createElement("div", { id: "showItems", style: hideShowEmpty },
+      React.createElement("h3", { style: emptyCart }, "Looks like your cart is empty."))),
 
 
       React.createElement("div", { id: "order" },

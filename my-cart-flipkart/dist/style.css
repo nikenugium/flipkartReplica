@@ -40,6 +40,11 @@ button:hover {
   color:white;
   font-size:18px;
 }
+
+.itemsContent{
+  display:block;
+}
+
 .itemsContent,#order{
   height:250px;
   width:740px;

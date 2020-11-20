@@ -125,7 +125,7 @@ img {
   color:black;
   position:relative;
   top:-70px;
-  left:-70px;
+  left:-40px;
   text-decoration:none;
 }
 #ItemDetail, #sellerDetail {
@@ -143,6 +143,7 @@ img {
   position:relative;
   top:-115px;
   left:157px;
+/*   color:black; */
   font-weight:bold;
   font-size:18px;
 }
@@ -218,6 +219,10 @@ img {
   color:gray;
   font-weight:bold;
 }
+#Price {
+  color:black;  
+}
+
 #totalItemsCount, #deliveryDetail, #totalAmount{
   width:100%;
   height:25%;
